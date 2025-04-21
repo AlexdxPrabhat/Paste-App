@@ -59,7 +59,7 @@ const Home = () => {
         />
         <button
           onClick={createPaste}
-          className="w-full sm:w-[30%] bg-blue-600 hover:bg-blue-700 text-white py-3 sm:py-2 px-4 rounded-full text-sm sm:text-base transition-colors"
+          className="w-full sm:w-[30%] bg-blue-600 hover:bg-blue-700 text-black py-3 sm:py-2 px-4 rounded-full text-sm sm:text-base transition-colors"
         >
           {pasteId ? "Update Paste" : "Create Paste"}
         </button>
