@@ -48,7 +48,7 @@ const Home = () => {
   }
 
   return (
-    <div className="w-full px-4 lg:max-w-[1280px] mx-auto mt-2">
+    <div className="px-4 max-w-7xl mx-auto mt-2">
       <div className="flex flex-col  sm:flex-row justify-between gap-2 w-full">
         <input
           className="w-full sm:w-[70%] p-3 sm:p-2 border rounded-full m-1 sm:m-2 text-sm sm:text-base"
@@ -59,7 +59,7 @@ const Home = () => {
         />
         <button
           onClick={createPaste}
-          className="w-full sm:w-[30%] bg-blue-600 hover:bg-blue-700 text-black py-3 sm:py-2 px-4 rounded-full text-sm sm:text-base transition-colors"
+          className="w-full sm:w-[30%]  bg-blue-600 hover:bg-blue-700 text-black py-3 sm:py-2 px-4 rounded-full text-sm sm:text-base transition-colors"
         >
           {pasteId ? "Update Paste" : "Create Paste"}
         </button>

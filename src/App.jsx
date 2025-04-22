@@ -1,55 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Home from './components/Home'
-import Paste from './components/Paste'
-import ViewPaste from './components/ViewPaste'
+// App.js
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Paste from './components/Paste';
+import ViewPaste from './components/ViewPaste';
+
+const Layout = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4">
+        <Outlet />
+      </main>
+    </div>
+  );
+};
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: (
-      <div>
-        <Navbar></Navbar>
-        <Home></Home>
-      </div>
-    ),
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/pastes",
+        element: <Paste />,
+      },
+      {
+        path: "/pastes/:id",
+        element: <ViewPaste />,
+      },
+    ],
   },
-  {
-    path: "/pastes",
-    element: (
-      <div>
-        <Navbar></Navbar>
-        <Paste></Paste>
-      </div>
-    ),
-  },
-  {
-    path: "/pastes/:id",
-    element: (
-      <div>
-        <Navbar></Navbar>
-        <ViewPaste></ViewPaste>
-      </div>
-    ),
-  },
-  
 ]);
 
-
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <RouterProvider router={router}>
-    
-      </RouterProvider>
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
